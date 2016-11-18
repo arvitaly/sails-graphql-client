@@ -19,8 +19,6 @@
   },
   "homepage": "https://github.com/arvitaly/sails-graphql-client#readme",
   "dependencies": {
-    "@types/socket.io-client": "^1.4.28",
-    "graphql": "^0.8.1",
     "onemitter": "0.0.3",
     "sails.io.js": "^1.0.1",
     "sails.io.js-typed": "0.0.2",
@@ -34,6 +32,7 @@
     "sails": "^0.12.10",
     "sails-typings": "0.0.6",
     "tslint": "^3.15.1",
-    "typescript": "^2.0.10"
+    "typescript": "^2.0.10",
+    "waterline-typings": "0.0.2"
   }
 }

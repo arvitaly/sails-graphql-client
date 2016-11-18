@@ -1,7 +1,6 @@
-"use strict";
 module.exports = {
     attributes: {
-        firstName: "string",
+        firstName: "string"
     },
     globalId: "User",
-};
+}

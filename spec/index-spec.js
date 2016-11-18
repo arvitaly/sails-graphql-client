@@ -35,14 +35,44 @@ describe("Client spec", () => {
             done();
         }
     }));
-    it("when call query should add query and vars to request and return result", (done) => __awaiter(this, void 0, void 0, function* () {
-        done();
+    it("when watch request onemitter should emitted", (done) => __awaiter(this, void 0, void 0, function* () {
+        try {
+            yield client.request(`
+                mutation M1{ 
+                    createUser( input: {firstName: "n2"} ){ 
+                        user{
+                            id
+                        } 
+                    } 
+                }`);
+            const handle = jasmine.createSpy("");
+            client.watchRequest(`query Q1{ user(firstNameContains:"n2"){ firstName } }`, {}, { pollingTimeout: 50 })(handle);
+            yield new Promise((resolve) => setTimeout(resolve, 100));
+            expect(handle.calls.count() > 1).toBeTruthy();
+            expect(handle.calls.argsFor(0)[0]).toEqual({ user: { firstName: "n2" } });
+            handle.calls.reset();
+            yield (client.request(`
+                mutation M1{ 
+                    updateUser( input:{setFirstName: {firstName:"n23"} } ){ 
+                        users{
+                            id
+                        } 
+                    } 
+                }`));
+            yield new Promise((resolve) => setTimeout(resolve, 300));
+            expect(handle.calls.argsFor(0)[0]).toEqual({ user: { firstName: "n23" } });
+            done();
+        }
+        catch (e) {
+            fail(e);
+            done();
+        }
     }));
     beforeAll((done) => {
         const sails = new Sails.constructor();
         sails.lift({
-            port: 14000,
-            appPath: __dirname + "/fixtures/app1",
+            port: 14001,
+            appPath: __dirname + "/../node_modules/sails-graphql-fixture-app",
             connections: { memory: { adapter: "sails-memory" } },
             models: { connection: "memory", migrate: "drop" },
         }, (err, app2) => {
@@ -53,10 +83,12 @@ describe("Client spec", () => {
             }
             app = app2;
             client = new _1.default({
-                address: "http://127.0.0.1:" + 14000,
+                address: "http://127.0.0.1:" + 14001,
                 path: "/graphql",
             });
-            done();
+            setTimeout(() => {
+                done();
+            }, 2000);
         });
     });
     afterAll((done) => {
@@ -66,3 +98,4 @@ describe("Client spec", () => {
 function j(data) {
     return JSON.parse(JSON.stringify(data));
 }
+;
