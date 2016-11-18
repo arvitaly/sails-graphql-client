@@ -1,9 +1,10 @@
 {
   "globalDependencies": {
     "jasmine": "registry:dt/jasmine#2.5.0+20161025102649",
+    "node": "registry:dt/node#6.0.0+20161110151007",
     "sails": "github:arvitaly/sails-typings/index.d.ts",
-    "waterline": "github:arvitaly/waterline-typings/index.d.ts",
     "sails.io.js": "github:arvitaly/sails.io.js-typed/global.d.ts",
-    "socket.io-client": "registry:dt/socket.io-client#1.4.4+20160317120654"
+    "socket.io-client": "registry:dt/socket.io-client#1.4.4+20160317120654",
+    "waterline": "github:arvitaly/waterline-typings/index.d.ts"
   }
 }
