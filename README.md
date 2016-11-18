@@ -17,7 +17,7 @@ Very simple GraphQL client for sails app. Use it with [sails-graphql-adapter](ht
 
     watchRequest(q, vars?, opts?: { pollingTimeout?: number }): IOneEmitter<any>
 
-Watch request used [onemitter](https://github.com/arvitaly/onemitter)
+Watch request use [onemitter](https://github.com/arvitaly/onemitter) for subscribe
 
 # Example
 
