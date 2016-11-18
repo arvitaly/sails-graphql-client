@@ -72,7 +72,7 @@ describe("Client spec", () => {
         const sails = new Sails.constructor();
         sails.lift({
             port: 14001,
-            appPath: __dirname + "/../node_modules/sails-graphql-fixture-app",
+            appPath: __dirname + "/fixtures/app1",
             connections: { memory: { adapter: "sails-memory" } },
             models: { connection: "memory", migrate: "drop" },
         }, (err, app2) => {
