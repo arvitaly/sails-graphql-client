@@ -1,0 +1,6 @@
+{
+  "globalDependencies": {
+    "sails.io.js": "github:arvitaly/sails.io.js-typed/global.d.ts",
+    "sails": "github:arvitaly/sails-typings/index.d.ts"
+  }
+}

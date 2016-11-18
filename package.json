@@ -1,0 +1,39 @@
+{
+  "name": "sails-graphql-client",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "tsc && tslint --project=tsconfig.json && istanbul cover node_modules/jasmine/bin/jasmine.js",
+    "watch:test": "nodemon --exec jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arvitaly/sails-graphql-client.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arvitaly/sails-graphql-client/issues"
+  },
+  "homepage": "https://github.com/arvitaly/sails-graphql-client#readme",
+  "dependencies": {
+    "@types/socket.io-client": "^1.4.28",
+    "graphql": "^0.8.1",
+    "onemitter": "0.0.3",
+    "sails.io.js": "^1.0.1",
+    "sails.io.js-typed": "0.0.2",
+    "socket.io-client": "^1.5.1"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.15",
+    "grunt": "^1.0.1",
+    "istanbul": "^0.4.5",
+    "jasmine": "^2.4.1",
+    "sails": "^0.12.10",
+    "sails-typings": "0.0.6",
+    "tslint": "^3.15.1",
+    "typescript": "^2.0.10"
+  }
+}

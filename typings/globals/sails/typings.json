@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/arvitaly/sails-typings/master/index.d.ts",
+    "raw": "github:arvitaly/sails-typings/index.d.ts",
+    "typings": "https://raw.githubusercontent.com/arvitaly/sails-typings/master/index.d.ts"
+  }
+}
