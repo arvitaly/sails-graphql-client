@@ -21,7 +21,8 @@ Watch request used [onemitter](https://github.com/arvitaly/onemitter)
 
 # Example
 
-    //Create mutation
+## Create mutation
+
     await client.request(`
         mutation M1{ 
             createUser( input: {firstName: "Ni"} ){ 
@@ -31,18 +32,20 @@ Watch request used [onemitter](https://github.com/arvitaly/onemitter)
             } 
         }`);
     // { createUser: {user: { id : 15 }} }
-    
-        const handle = (data)=>{
-            // {user:{firstName: "John" }}
-        }
-        client.watchRequest(`
-            query Q1{ 
-                user(
-                    firstNameContains:"Jo"
-                    ){ 
-                        firstName 
-                    } 
-                }`, {},{ pollingTimeout: 50 })(handle);
+
+## Watch for query
+
+    const handle = (data)=>{
+        // {user:{firstName: "John" }}
+    }
+    client.watchRequest(`
+        query Q1{ 
+            user(
+                firstNameContains:"Jo"
+                ){ 
+                    firstName 
+                } 
+            }`, {},{ pollingTimeout: 50 })(handle);
 
 
 
