@@ -21,7 +21,8 @@ Watch request used [onemitter](https://github.com/arvitaly/onemitter)
 
 # Example
 
-    client = new Client({
+    import Client from "sails-graphql-client";
+    const client = new Client({
         address: "http://127.0.0.1:1337",
         path: "/graphql",
     });
