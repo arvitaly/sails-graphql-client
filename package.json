@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tsc && tslint --project=tsconfig.json && istanbul cover node_modules/jasmine/bin/jasmine.js",
-    "watch:test": "nodemon --exec jasmine"
+    "test": "tsc && tslint --project=tsconfig.json && jest --verbose --coverage",
+    "watch:test": "jest --watch",
+    "tslint": "tslint --project=tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -18,23 +19,25 @@
     "url": "https://github.com/arvitaly/sails-graphql-client/issues"
   },
   "homepage": "https://github.com/arvitaly/sails-graphql-client#readme",
-  "dependencies": {
-    "graphql": "^0.8.2",
-    "onemitter": "0.0.3",
-    "sails-typings": "0.0.6",
-    "sails.io.js": "^1.0.1",
-    "sails.io.js-typed": "0.0.2",
-    "socket.io-client": "^1.5.1"
+  "jest": {
+    "automock": false
   },
   "devDependencies": {
+    "@types/jest": "^16.0.1",
     "coveralls": "^2.11.15",
-    "grunt": "^1.0.1",
-    "istanbul": "^0.4.5",
-    "jasmine": "^2.4.1",
-    "sails": "^0.12.10",
-    "sails-typings": "0.0.6",
-    "tslint": "^3.15.1",
-    "typescript": "^2.0.10",
-    "waterline-typings": "0.0.2"
+    "jest": "^17.0.3",
+    "tslint": "^4.0.2",
+    "typescript": "^2.1.4"
+  },
+  "dependencies": {
+    "@types/graphql": "^0.8.2",
+    "@types/sails.io.js": "^1.0.0",
+    "@types/socket.io-client": "^1.4.29",
+    "graphql": "^0.8.2",
+    "graphql-fields-info": "0.0.3",
+    "graphql-tag": "^1.1.2",
+    "onemitter": "0.0.5",
+    "sails.io.js": "^1.1.4",
+    "socket.io-client": "^1.7.2"
   }
 }

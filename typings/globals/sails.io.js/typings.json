@@ -1,8 +1,0 @@
-{
-  "resolution": "main",
-  "tree": {
-    "src": "https://raw.githubusercontent.com/arvitaly/sails.io.js-typed/master/global.d.ts",
-    "raw": "github:arvitaly/sails.io.js-typed/global.d.ts",
-    "typings": "https://raw.githubusercontent.com/arvitaly/sails.io.js-typed/master/global.d.ts"
-  }
-}
