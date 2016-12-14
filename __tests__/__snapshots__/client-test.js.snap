@@ -1,0 +1,57 @@
+exports[`Client tests live query one 1`] = `
+Object {
+  "viewer": Object {
+    "model2s": Object {
+      "edges": Array [],
+    },
+  },
+}
+`;
+
+exports[`Client tests live query one 2`] = `
+Object {
+  "viewer": Object {
+    "model2s": Object {
+      "edges": Array [
+        Object {
+          "node": Object {
+            "createdAt": "2016-12-14T23:14:19.401Z",
+            "id": "TW9kZWwyOjEuMQ==",
+            "key": "1.1",
+            "name": "name2Test",
+            "updatedAt": "2016-12-14T23:14:19.401Z",
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`Client tests live query one 3`] = `
+Object {
+  "viewer": Object {
+    "model2s": Object {
+      "edges": Array [
+        Object {
+          "node": Object {
+            "createdAt": "2016-12-14T23:14:19.401Z",
+            "id": "TW9kZWwyOjEuMQ==",
+            "key": "1.1",
+            "name": "name2Test",
+            "updatedAt": "2016-12-14T23:14:19.401Z",
+          },
+        },
+        Object {
+          "node": Object {
+            "createdAt": "2016-12-14T23:14:19.401Z",
+            "key": "1.1",
+            "name": "newName",
+            "updatedAt": "2016-12-14T23:14:19.422Z",
+          },
+        },
+      ],
+    },
+  },
+}
+`;

@@ -1,0 +1,140 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "C:\\Users\\arvitaly\\projects\\utils\\sails-graphql-client\\node_modules\\sails-typings\\package.json",
+    "raw": "npm:sails-typings",
+    "main": "index.js",
+    "version": "0.2.3",
+    "dependencies": {
+      "@types/bluebird": {
+        "src": "C:\\Users\\arvitaly\\projects\\utils\\sails-graphql-client\\node_modules\\@types\\bluebird\\package.json",
+        "raw": "npm:@types/bluebird",
+        "main": "",
+        "typings": "index.d.ts",
+        "version": "3.0.36",
+        "name": "@types/bluebird"
+      },
+      "@types/express": {
+        "src": "C:\\Users\\arvitaly\\projects\\utils\\sails-graphql-client\\node_modules\\@types\\express\\package.json",
+        "raw": "npm:@types/express",
+        "main": "",
+        "typings": "index.d.ts",
+        "version": "4.0.34",
+        "dependencies": {
+          "@types/express-serve-static-core": {
+            "src": "C:\\Users\\arvitaly\\projects\\utils\\sails-graphql-client\\node_modules\\@types\\express-serve-static-core\\package.json",
+            "raw": "npm:@types/express-serve-static-core",
+            "main": "",
+            "typings": "index.d.ts",
+            "version": "4.0.39",
+            "dependencies": {
+              "@types/node": {
+                "src": "C:\\Users\\arvitaly\\projects\\utils\\sails-graphql-client\\node_modules\\@types\\node\\package.json",
+                "raw": "npm:@types/node",
+                "main": "",
+                "version": "0.0.3",
+                "name": "@types/node"
+              }
+            },
+            "name": "@types/express-serve-static-core"
+          },
+          "@types/serve-static": {
+            "src": "C:\\Users\\arvitaly\\projects\\utils\\sails-graphql-client\\node_modules\\@types\\serve-static\\package.json",
+            "raw": "npm:@types/serve-static",
+            "main": "",
+            "typings": "index.d.ts",
+            "version": "1.7.31",
+            "dependencies": {
+              "@types/express-serve-static-core": {
+                "src": "C:\\Users\\arvitaly\\projects\\utils\\sails-graphql-client\\node_modules\\@types\\express-serve-static-core\\package.json",
+                "raw": "npm:@types/express-serve-static-core",
+                "main": "",
+                "typings": "index.d.ts",
+                "version": "4.0.39",
+                "dependencies": {
+                  "@types/node": {
+                    "src": "C:\\Users\\arvitaly\\projects\\utils\\sails-graphql-client\\node_modules\\@types\\node\\package.json",
+                    "raw": "npm:@types/node",
+                    "main": "",
+                    "version": "0.0.3",
+                    "name": "@types/node"
+                  }
+                },
+                "name": "@types/express-serve-static-core"
+              },
+              "@types/mime": {
+                "src": "C:\\Users\\arvitaly\\projects\\utils\\sails-graphql-client\\node_modules\\@types\\mime\\package.json",
+                "raw": "npm:@types/mime",
+                "main": "",
+                "typings": "index.d.ts",
+                "version": "0.0.29",
+                "name": "@types/mime"
+              }
+            },
+            "name": "@types/serve-static"
+          }
+        },
+        "name": "@types/express"
+      },
+      "@types/socket.io": {
+        "src": "C:\\Users\\arvitaly\\projects\\utils\\sails-graphql-client\\node_modules\\@types\\socket.io\\package.json",
+        "raw": "npm:@types/socket.io",
+        "main": "",
+        "typings": "index.d.ts",
+        "version": "1.4.27",
+        "dependencies": {
+          "@types/node": {
+            "src": "C:\\Users\\arvitaly\\projects\\utils\\sails-graphql-client\\node_modules\\@types\\node\\package.json",
+            "raw": "npm:@types/node",
+            "main": "",
+            "version": "0.0.3",
+            "name": "@types/node"
+          }
+        },
+        "name": "@types/socket.io"
+      },
+      "@types/waterline": {
+        "src": "C:\\Users\\arvitaly\\projects\\utils\\sails-graphql-client\\node_modules\\@types\\waterline\\package.json",
+        "raw": "npm:@types/waterline",
+        "main": "",
+        "version": "0.11.1",
+        "dependencies": {
+          "@types/bluebird": {
+            "src": "C:\\Users\\arvitaly\\projects\\utils\\sails-graphql-client\\node_modules\\@types\\bluebird\\package.json",
+            "raw": "npm:@types/bluebird",
+            "main": "",
+            "typings": "index.d.ts",
+            "version": "3.0.36",
+            "name": "@types/bluebird"
+          },
+          "@types/node": {
+            "src": "C:\\Users\\arvitaly\\projects\\utils\\sails-graphql-client\\node_modules\\@types\\node\\package.json",
+            "raw": "npm:@types/node",
+            "main": "",
+            "version": "0.0.3",
+            "name": "@types/node"
+          }
+        },
+        "name": "@types/waterline"
+      },
+      "@types/winston": {
+        "src": "C:\\Users\\arvitaly\\projects\\utils\\sails-graphql-client\\node_modules\\@types\\winston\\package.json",
+        "raw": "npm:@types/winston",
+        "main": "",
+        "typings": "index.d.ts",
+        "version": "0.0.32",
+        "dependencies": {
+          "@types/node": {
+            "src": "C:\\Users\\arvitaly\\projects\\utils\\sails-graphql-client\\node_modules\\@types\\node\\package.json",
+            "raw": "npm:@types/node",
+            "main": "",
+            "version": "0.0.3",
+            "name": "@types/node"
+          }
+        },
+        "name": "@types/winston"
+      }
+    },
+    "name": "sails-typings"
+  }
+}

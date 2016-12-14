@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "sails": "npm:sails-typings"
+  }
+}
