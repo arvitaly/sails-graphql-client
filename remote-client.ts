@@ -1,7 +1,7 @@
 import { ChildProcess, fork } from "child_process";
 import onemitter, { Onemitter } from "onemitter";
 import { IQuery } from "relay-common";
-import RealClient, { IOptions } from ".";
+import { Client as RealClient, IOptions } from ".";
 import { IRemoteMessage } from "./typings";
 export class Client {
     protected messageId = 0;
