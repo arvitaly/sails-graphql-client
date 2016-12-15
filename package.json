@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "@types/graphql": "^0.8.2",
+    "@types/graphql-relay": "^0.4.0",
     "@types/sails.io.js": "^1.0.0",
     "@types/socket.io-client": "^1.4.29",
     "graphql-fields-info": "0.0.8",
