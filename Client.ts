@@ -31,9 +31,12 @@ class Client {
     constructor(public opts: IOptions) {
         this.relay = new Relay(this);
         if (opts.env) {
-            io.sails.url = opts.env;
+            io.sails.environment = opts.env;
         }
         this.socket = io.sails.connect(this.opts.url);
+        this.socket.on("reconnect", () => {
+            this.relay.restoreAllLive();
+        });
         this.socket.on("live", (message: LiveMessage) => {
             switch (message.kind) {
                 case "add":

@@ -9,9 +9,12 @@ class Client {
         this.opts = opts;
         this.relay = new relay_common_1.Relay(this);
         if (opts.env) {
-            io.sails.url = opts.env;
+            io.sails.environment = opts.env;
         }
         this.socket = io.sails.connect(this.opts.url);
+        this.socket.on("reconnect", () => {
+            this.relay.restoreAllLive();
+        });
         this.socket.on("live", (message) => {
             switch (message.kind) {
                 case "add":
