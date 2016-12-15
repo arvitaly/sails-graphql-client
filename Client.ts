@@ -11,6 +11,7 @@ io.sails.autoConnect = false;
 export interface IOptions {
     url: string;
     path: string;
+    env?: string;
 }
 interface IUpdateMessage {
     data: any;
@@ -29,6 +30,9 @@ class Client {
     protected relay: Relay;
     constructor(public opts: IOptions) {
         this.relay = new Relay(this);
+        if (opts.env) {
+            io.sails.url = opts.env;
+        }
         this.socket = io.sails.connect(this.opts.url);
         this.socket.on("live", (message: LiveMessage) => {
             switch (message.kind) {
