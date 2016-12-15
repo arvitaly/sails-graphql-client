@@ -17,6 +17,8 @@ export class Client {
         this.child.on("message", (data) => {
             if (data.id) {
                 this.commands[data.id].onemitter.emit(data.data);
+            } else {
+                console.warn(data);
             }
         });
         this.send({

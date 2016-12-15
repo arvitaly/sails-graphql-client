@@ -15,11 +15,8 @@ Object {
       "edges": Array [
         Object {
           "node": Object {
-            "createdAt": "2016-12-14T23:14:19.401Z",
             "id": "TW9kZWwyOjEuMQ==",
-            "key": "1.1",
             "name": "name2Test",
-            "updatedAt": "2016-12-14T23:14:19.401Z",
           },
         },
       ],
@@ -35,19 +32,8 @@ Object {
       "edges": Array [
         Object {
           "node": Object {
-            "createdAt": "2016-12-14T23:14:19.401Z",
             "id": "TW9kZWwyOjEuMQ==",
-            "key": "1.1",
-            "name": "name2Test",
-            "updatedAt": "2016-12-14T23:14:19.401Z",
-          },
-        },
-        Object {
-          "node": Object {
-            "createdAt": "2016-12-14T23:14:19.401Z",
-            "key": "1.1",
             "name": "newName",
-            "updatedAt": "2016-12-14T23:14:19.422Z",
           },
         },
       ],
