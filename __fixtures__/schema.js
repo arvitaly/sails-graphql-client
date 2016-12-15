@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+// tslint:disable object-literal-sort-keys object-literal-key-quotes max-line-length
 exports.default = {
     "data": {
         "__schema": {
