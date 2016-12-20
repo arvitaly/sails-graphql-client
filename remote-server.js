@@ -10,13 +10,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const _1 = require(".");
 let client;
 process.on("message", (message) => __awaiter(this, void 0, void 0, function* () {
+    if (!process.send) {
+        throw new Error("Process not forked");
+    }
     switch (message.command) {
         case "new":
             client = new _1.Client(message.args[0]);
             break;
+        case "unsubscribe":
+            yield client.unsubscribe(message.id);
+            process.send({
+                type: "resolve",
+                id: message.id,
+            });
+            break;
         case "live":
-            const o = (yield client.live.apply(client, message.args)).onemitter;
-            o.on((data) => {
+            const result = (yield client.live.apply(client, message.args));
+            result.onemitter.on((data) => {
                 if (!process.send) {
                     throw new Error("Process not forked");
                 }
@@ -24,6 +34,11 @@ process.on("message", (message) => __awaiter(this, void 0, void 0, function* () 
                     id: message.id,
                     data,
                 });
+            });
+            process.send({
+                type: "resolveLive",
+                id: message.id,
+                data: result.id,
             });
             break;
         default:

@@ -43,12 +43,15 @@ describe("Client tests", () => {
                 }
             }
             }`;
-        const o1 = yield client.live(query);
+        const result = yield client.live(query);
+        const o1 = result.onemitter;
         expect(yield o1.wait()).toMatchSnapshot();
         app.create("model2", { name: "name2Test", key: 1.1 });
         const data = yield o1.wait();
         expect(data).toMatchSnapshot();
         app.update("model2", graphql_relay_1.fromGlobalId(data.viewer.model2s.edges[0].node.id).id, { name: "newName" });
         expect(yield o1.wait()).toMatchSnapshot();
+        yield client.unsubscribe(result.id);
+        app.update("model2", graphql_relay_1.fromGlobalId(data.viewer.model2s.edges[0].node.id).id, { name: "newName" });
     }));
 });

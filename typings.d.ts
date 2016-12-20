@@ -1,5 +1,5 @@
 export interface IRemoteMessage {
-    command: "new" | "live";
+    command: "new" | "live" | "unsubscribe";
     args: any[];
     id: string;
 }

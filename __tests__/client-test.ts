@@ -34,12 +34,16 @@ describe("Client tests", () => {
                 }
             }
             }`;
-        const o1 = await client.live<any>(query);
+        const result = await client.live<any>(query);
+        const o1 = result.onemitter;
         expect(await o1.wait()).toMatchSnapshot();
         app.create("model2", { name: "name2Test", key: 1.1 });
         const data = await o1.wait();
         expect(data).toMatchSnapshot();
         app.update("model2", fromGlobalId(data.viewer.model2s.edges[0].node.id).id, { name: "newName" });
         expect(await o1.wait()).toMatchSnapshot();
+        await client.unsubscribe(result.id);
+        app.update("model2", fromGlobalId(data.viewer.model2s.edges[0].node.id).id, { name: "newName" });
+
     });
 });

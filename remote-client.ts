@@ -8,6 +8,7 @@ export class Client {
     protected commands: {
         [index: string]: {
             id: string;
+            resolve: (data: any) => void;
             onemitter: Onemitter<any>;
         },
     } = {};
@@ -15,6 +16,17 @@ export class Client {
     constructor(public opts: IOptions) {
         this.child = fork(__dirname + "/remote-server");
         this.child.on("message", (data) => {
+            if (data.type === "resolve") {
+                this.commands[data.id].resolve(data.data);
+                return;
+            }
+            if (data.type === "resolveLive") {
+                this.commands[data.id].resolve({
+                    id: data.data.id,
+                    onemitter: this.commands[data.id].onemitter,
+                });
+                return;
+            }
             if (data.id) {
                 this.commands[data.id].onemitter.emit(data.data);
             } else {
@@ -30,19 +42,31 @@ export class Client {
     public send(message: IRemoteMessage) {
         this.child.send(message);
     }
-    public async live<T>(query: IQuery, vars?: any): Promise<Onemitter<T>> {
+    public async unsubscribe(id: string) {
+        this.send({
+            command: "unsubscribe",
+            id,
+            args: [],
+        });
+    }
+    public async live<T>(query: IQuery, vars?: any): Promise<{
+        onemitter: Onemitter<T>;
+        id: string;
+    }> {
         const id = this.getMessageId();
         this.send({
             args: [query, vars],
             command: "live",
             id,
         });
-        const o = onemitter();
-        this.commands[id] = {
-            id,
-            onemitter: o,
-        };
-        return Promise.resolve(o);
+        const o = onemitter<any>();
+        return new Promise<any>((resolve) => {
+            this.commands[id] = {
+                id,
+                resolve,
+                onemitter: o,
+            };
+        });
     }
     public async close() {
         return Promise.resolve(this.child.kill());
