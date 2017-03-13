@@ -24,14 +24,14 @@
     "usesBabelJest": false
   },
   "devDependencies": {
-    "@types/jest": "^16.0.1",
+    "@types/jest": "^19.2.1",
     "coveralls": "^2.11.15",
-    "graphql-relay": "^0.4.4",
+    "graphql-relay": "^0.5.1",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
-    "jest": "^17.0.3",
+    "jest": "^19.0.2",
     "sails": "^0.12.11",
-    "sails-fixture-app": "^0.0.25",
+    "sails-fixture-app": "^0.0.26",
     "tslint": "^4.0.2",
     "typescript": "^2.1.4"
   },
@@ -40,9 +40,9 @@
     "@types/graphql-relay": "^0.4.0",
     "@types/sails.io.js": "^1.0.0",
     "@types/socket.io-client": "^1.4.29",
-    "graphql-fields-info": "0.0.9",
+    "graphql-fields-info": "0.0.10",
     "onemitter": "0.0.6",
-    "relay-common": "^0.0.11",
+    "relay-common": "^0.0.13",
     "sails-graphql-interfaces": "0.0.3",
     "sails.io.js": "^1.1.4",
     "socket.io-client": "^1.7.2"
