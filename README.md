@@ -1,5 +1,7 @@
 # sails-graphql-client
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/arvitaly/sails-graphql-client.svg)](https://greenkeeper.io/)
+
 
 
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
