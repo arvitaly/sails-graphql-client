@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const relay_common_1 = require("relay-common");
 const SailsIOJS = require("sails.io.js");
 const SocketIOClient = require("socket.io-client");
@@ -59,5 +60,4 @@ class Client {
         });
     }
 }
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = Client;

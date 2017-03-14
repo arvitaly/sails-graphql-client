@@ -5,6 +5,7 @@ import { lift, RemoteApp } from "sails-fixture-app";
 import schemaJSON from "./../__fixtures__/schema";
 import createClient, { Client } from "./../remote-client";
 const schema = buildClientSchema(schemaJSON.data as any);
+
 describe("Client tests", () => {
     let app: RemoteApp;
     let client: Client;

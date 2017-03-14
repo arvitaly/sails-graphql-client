@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Client tests live query one 1`] = `
 Object {
   "viewer": Object {
