@@ -40,7 +40,7 @@
     "@types/graphql-relay": "^0.4.0",
     "@types/sails.io.js": "^1.0.0",
     "@types/socket.io-client": "^1.4.29",
-    "graphql-fields-info": "0.0.10",
+    "graphql-fields-info": "0.0.11",
     "onemitter": "0.0.6",
     "relay-common": "^0.0.13",
     "sails-graphql-interfaces": "0.0.3",
