@@ -38,7 +38,7 @@ class Client {
     fetch(q, vars, subscriptionId, isUnsubscribe = false) {
         return new Promise((resolve, reject) => {
             this.socket.request({
-                data: { query: q, vars, subscriptionId },
+                data: { query: q, variables: vars, subscriptionId },
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json",

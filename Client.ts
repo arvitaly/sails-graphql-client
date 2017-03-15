@@ -59,7 +59,7 @@ class Client implements IResolver {
     public fetch(q: string, vars?: any, subscriptionId?: string, isUnsubscribe = false): Promise<any> {
         return new Promise((resolve, reject) => {
             this.socket.request({
-                data: { query: q, vars, subscriptionId },
+                data: { query: q, variables: vars, subscriptionId },
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json",
