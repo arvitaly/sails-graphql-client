@@ -1,6 +1,6 @@
 import { buildClientSchema } from "graphql";
 import { fromGlobalId } from "graphql-relay";
-import { QueryParser } from "relay-common";
+import { QueryParser } from "membra";
 import { lift, RemoteApp } from "sails-fixture-app";
 import schemaJSON from "./../__fixtures__/schema";
 import createClient, { Client } from "./../remote-client";
@@ -45,6 +45,8 @@ describe("Client tests", () => {
         expect(await o1.wait()).toMatchSnapshot();
         await client.unsubscribe(result.id);
         app.update("model2", fromGlobalId(data.viewer.model2s.edges[0].node.id).id, { name: "newName" });
-
+    });
+    it("fetch schema json", () => {
+        // TODO
     });
 });

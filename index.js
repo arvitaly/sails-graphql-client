@@ -2,5 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Client_1 = require("./Client");
 exports.Client = Client_1.default;
-var relay_common_1 = require("relay-common");
-exports.QueryParser = relay_common_1.QueryParser;
+var membra_1 = require("membra");
+exports.Membra = membra_1.Membra;
+exports.QueryParser = membra_1.QueryParser;

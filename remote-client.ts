@@ -1,6 +1,6 @@
 import { ChildProcess, fork } from "child_process";
+import { IQuery } from "membra";
 import onemitter, { Onemitter } from "onemitter";
-import { IQuery } from "relay-common";
 import { Client as RealClient, IOptions } from ".";
 import { IRemoteMessage } from "./typings";
 export class Client {
@@ -49,7 +49,7 @@ export class Client {
             args: [],
         });
     }
-    public async live<T>(query: IQuery, vars?: any): Promise<{
+    public async live<T>(query: IQuery<T>, vars?: any): Promise<{
         onemitter: Onemitter<T>;
         id: string;
     }> {

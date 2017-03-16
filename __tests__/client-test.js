@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const graphql_1 = require("graphql");
 const graphql_relay_1 = require("graphql-relay");
-const relay_common_1 = require("relay-common");
+const membra_1 = require("membra");
 const sails_fixture_app_1 = require("sails-fixture-app");
 const schema_1 = require("./../__fixtures__/schema");
 const remote_client_1 = require("./../remote-client");
@@ -20,7 +20,7 @@ describe("Client tests", () => {
     let client;
     let queryParser;
     beforeEach(() => __awaiter(this, void 0, void 0, function* () {
-        queryParser = new relay_common_1.QueryParser(schema);
+        queryParser = new membra_1.QueryParser(schema);
         app = yield sails_fixture_app_1.lift();
         client = remote_client_1.default({
             path: "/graphql",
@@ -55,4 +55,7 @@ describe("Client tests", () => {
         yield client.unsubscribe(result.id);
         app.update("model2", graphql_relay_1.fromGlobalId(data.viewer.model2s.edges[0].node.id).id, { name: "newName" });
     }));
+    it("fetch schema json", () => {
+        // TODO
+    });
 });

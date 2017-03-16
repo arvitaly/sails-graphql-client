@@ -1,8 +1,8 @@
 import { DocumentNode } from "graphql";
 import { Fields, fromQuery, GraphQLFieldsInfo } from "graphql-fields-info";
 import { Connection } from "graphql-relay";
+import { IQuery, IResolver, Membra } from "membra";
 import onemitter, { Onemitter } from "onemitter";
-import { IQuery, IResolver, Relay } from "relay-common";
 import { LiveMessage } from "sails-graphql-interfaces";
 import SailsIOJS = require("sails.io.js");
 import SocketIOClient = require("socket.io-client");
@@ -27,24 +27,24 @@ interface IRow {
 
 class Client implements IResolver {
     protected socket: SailsIOJS.Socket;
-    protected relay: Relay;
+    protected membra: Membra;
     constructor(public opts: IOptions) {
-        this.relay = new Relay(this);
+        this.membra = new Membra(this);
         if (opts.env) {
             io.sails.environment = opts.env;
         }
         io.sails.reconnection = true;
         this.socket = io.sails.connect(this.opts.url);
         this.socket.on("reconnect", () => {
-            this.relay.restoreAllLive();
+            this.membra.restoreAllLive();
         });
         this.socket.on("live", (message: LiveMessage) => {
             switch (message.kind) {
                 case "add":
-                    this.relay.addNode(message.id, message.globalId, message.data);
+                    this.membra.addNode(message.id, message.globalId, message.data);
                     break;
                 case "update":
-                    this.relay.updateNode(message.id, message.globalId, message.data);
+                    this.membra.updateNode(message.id, message.globalId, message.data);
                     break;
                 default:
             }
@@ -53,8 +53,19 @@ class Client implements IResolver {
     public unsubscribe(id: string) {
         return this.fetch(``, null, id, true);
     }
-    public live(query: IQuery, vars?: any) {
-        return this.relay.live(query, vars);
+    public live<T>(query: IQuery<T>, vars?: any) {
+        return this.membra.live<T>(query, vars);
+    }
+    public async fetchSchemaJSON(): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
+            this.socket.get("/graphql.schema.json", (body: string, jwr: any) => {
+                if (jwr.statusCode !== 200) {
+                    reject("Invalid request, status code " + jwr.statusCode + ", response" + JSON.stringify(jwr));
+                    return;
+                }
+                resolve(body);
+            });
+        });
     }
     public fetch(q: string, vars?: any, subscriptionId?: string, isUnsubscribe = false): Promise<any> {
         return new Promise((resolve, reject) => {
