@@ -33,6 +33,9 @@ class Client {
                 case "update":
                     this.membra.updateNode(message.id, message.globalId, message.data);
                     break;
+                case "remove":
+                    this.membra.removeNode(message.id, message.globalId);
+                    break;
                 default:
             }
         });

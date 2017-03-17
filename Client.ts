@@ -15,7 +15,7 @@ export interface IOptions {
 }
 interface IUpdateMessage {
     data: any;
-    type: "update" | "create";
+    type: "update" | "create" | "remove";
     id: string;
     globalId: string;
 }
@@ -45,6 +45,9 @@ class Client implements IResolver {
                     break;
                 case "update":
                     this.membra.updateNode(message.id, message.globalId, message.data);
+                    break;
+                case "remove":
+                    this.membra.removeNode(message.id, message.globalId);
                     break;
                 default:
             }
