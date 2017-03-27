@@ -62,7 +62,11 @@ class Client {
     fetch(q, vars, subscriptionId, isUnsubscribe = false) {
         return new Promise((resolve, reject) => {
             this.socket.request({
-                data: { query: q, variables: vars, subscriptionId },
+                data: {
+                    query: this.opts.isBase64Transfer ? new Buffer(q).toString("base64") : q,
+                    variables: vars, subscriptionId,
+                    isBase64Transfer: this.opts.isBase64Transfer ? 1 : undefined,
+                },
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json",

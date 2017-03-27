@@ -12,6 +12,7 @@ export interface IOptions {
     url: string;
     path: string;
     env?: string;
+    isBase64Transfer?: boolean;
 }
 interface IUpdateMessage {
     data: any;
@@ -73,7 +74,11 @@ class Client implements IResolver {
     public fetch(q: string, vars?: any, subscriptionId?: string, isUnsubscribe = false): Promise<any> {
         return new Promise((resolve, reject) => {
             this.socket.request({
-                data: { query: q, variables: vars, subscriptionId },
+                data: {
+                    query: this.opts.isBase64Transfer ? new Buffer(q).toString("base64") : q,
+                    variables: vars, subscriptionId,
+                    isBase64Transfer: this.opts.isBase64Transfer ? 1 : undefined,
+                },
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json",
