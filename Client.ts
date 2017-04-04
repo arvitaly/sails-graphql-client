@@ -1,7 +1,7 @@
-import { DocumentNode } from "graphql";
+import { buildClientSchema, DocumentNode, GraphQLSchema } from "graphql";
 import { Fields, fromQuery, GraphQLFieldsInfo } from "graphql-fields-info";
 import { Connection } from "graphql-relay";
-import { IQuery, IResolver, Membra } from "membra";
+import { Generator, IQuery, IResolver, Membra } from "membra";
 import onemitter, { Onemitter } from "onemitter";
 import { LiveMessage } from "sails-graphql-interfaces";
 import SailsIOJS = require("sails.io.js");
@@ -13,6 +13,8 @@ export interface IOptions {
     path: string;
     env?: string;
     isBase64Transfer?: boolean;
+    schema?: GraphQLSchema;
+    schemaJSON?: any;
 }
 interface IUpdateMessage {
     data: any;
@@ -26,11 +28,20 @@ interface IRow {
     [index: string]: any;
 }
 
-class Client implements IResolver {
+class Client<S> implements IResolver {
     protected socket: SailsIOJS.Socket;
     protected membra: Membra;
+    protected generator: Generator<S>;
     constructor(public opts: IOptions) {
         this.membra = new Membra(this);
+        if (opts.schema) {
+            this.generator = new Generator(opts.schema);
+        } else {
+            if (opts.schemaJSON) {
+                const schema = buildClientSchema(opts.schemaJSON);
+                this.generator = new Generator(schema);
+            }
+        }
         if (opts.env) {
             io.sails.environment = opts.env;
         }
@@ -70,6 +81,9 @@ class Client implements IResolver {
                 resolve(body);
             });
         });
+    }
+    public execute<T>(executor: (f: S) => T): Promise<T> {
+        return this.membra.execute(this.generator.generate(executor));
     }
     public fetch(q: string, vars?: any, subscriptionId?: string, isUnsubscribe = false): Promise<any> {
         return new Promise((resolve, reject) => {

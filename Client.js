@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const graphql_1 = require("graphql");
 const membra_1 = require("membra");
 const SailsIOJS = require("sails.io.js");
 const SocketIOClient = require("socket.io-client");
@@ -17,6 +18,15 @@ class Client {
     constructor(opts) {
         this.opts = opts;
         this.membra = new membra_1.Membra(this);
+        if (opts.schema) {
+            this.generator = new membra_1.Generator(opts.schema);
+        }
+        else {
+            if (opts.schemaJSON) {
+                const schema = graphql_1.buildClientSchema(opts.schemaJSON);
+                this.generator = new membra_1.Generator(schema);
+            }
+        }
         if (opts.env) {
             io.sails.environment = opts.env;
         }
@@ -58,6 +68,9 @@ class Client {
                 });
             });
         });
+    }
+    execute(executor) {
+        return this.membra.execute(this.generator.generate(executor));
     }
     fetch(q, vars, subscriptionId, isUnsubscribe = false) {
         return new Promise((resolve, reject) => {

@@ -1,7 +1,7 @@
 import { Onemitter } from "onemitter";
 import { Client } from ".";
 import { IRemoteMessage } from "./typings";
-let client: Client;
+let client: Client<any>;
 process.on("message", async (message: IRemoteMessage) => {
     if (!process.send) {
         throw new Error("Process not forked");

@@ -25,7 +25,7 @@ describe("Client tests", () => {
     it("live query one", async () => {
         const query = queryParser.parse`query Q1{
             viewer{
-                model2s{ 
+                model2s{
                 edges{
                     node{
                         id

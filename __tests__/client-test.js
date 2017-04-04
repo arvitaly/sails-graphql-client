@@ -34,7 +34,7 @@ describe("Client tests", () => {
     it("live query one", () => __awaiter(this, void 0, void 0, function* () {
         const query = queryParser.parse `query Q1{
             viewer{
-                model2s{ 
+                model2s{
                 edges{
                     node{
                         id

@@ -23,25 +23,25 @@
     "automock": false
   },
   "devDependencies": {
-    "@types/jest": "^19.2.1",
+    "@types/jest": "^19.2.2",
     "coveralls": "^2.11.15",
     "graphql-relay": "^0.5.1",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
     "jest": "^19.0.2",
     "sails": "^0.12.11",
-    "sails-fixture-app": "^0.0.27",
-    "tslint": "^4.0.2",
-    "typescript": "^2.1.4"
+    "sails-fixture-app": "^0.0.28",
+    "tslint": "^5.0.0",
+    "typescript": "^2.2.2"
   },
   "dependencies": {
-    "@types/graphql": "^0.8.2",
-    "@types/graphql-relay": "^0.4.0",
+    "@types/graphql": "^0.9.0",
+    "@types/graphql-relay": "^0.4.1",
     "@types/sails.io.js": "^1.0.0",
     "@types/socket.io-client": "^1.4.29",
-    "graphql-fields-info": "0.0.13",
-    "membra": "^0.1.4",
-    "onemitter": "0.0.6",
+    "graphql-fields-info": "0.0.14",
+    "membra": "^0.1.8",
+    "onemitter": "0.0.7",
     "sails-graphql-interfaces": "0.0.4",
     "sails.io.js": "^1.1.4",
     "socket.io-client": "^1.7.2"
