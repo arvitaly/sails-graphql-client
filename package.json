@@ -41,7 +41,7 @@
     "@types/sails.io.js": "^1.0.0",
     "@types/socket.io-client": "^1.4.29",
     "graphql-fields-info": "0.0.14",
-    "membra": "^0.1.14",
+    "membra": "^0.1.16",
     "onemitter": "0.0.7",
     "sails-graphql-interfaces": "0.0.4",
     "sails.io.js": "^1.1.4",
