@@ -5,3 +5,6 @@ exports.Client = Client_1.default;
 var membra_1 = require("membra");
 exports.Membra = membra_1.Membra;
 exports.QueryParser = membra_1.QueryParser;
+var graphql_relay_1 = require("graphql-relay");
+exports.fromGlobalId = graphql_relay_1.fromGlobalId;
+exports.toGlobalId = graphql_relay_1.toGlobalId;
