@@ -30,6 +30,7 @@ class Client {
         if (opts.env) {
             io.sails.environment = opts.env;
         }
+        io.sails.useCORSRouteToGetCookie = false;
         io.sails.reconnection = true;
         this.socket = io.sails.connect(this.opts.url);
         this.socket.on("reconnect", () => {
