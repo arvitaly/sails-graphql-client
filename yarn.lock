@@ -2778,9 +2778,9 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
 
-membra@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/membra/-/membra-0.2.1.tgz#54345941bf40680af1549ae50f285cf1444c1970"
+membra@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/membra/-/membra-0.2.2.tgz#b0c9f03683a5a7772ccd48d37c07e36e96e11f58"
   dependencies:
     "@types/graphql" "^0.9.0"
     graphql-fields-info "0.0.14"
