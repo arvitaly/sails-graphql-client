@@ -1,4 +1,3 @@
-import { Onemitter } from "onemitter";
 import { Client } from ".";
 import { IRemoteMessage } from "./typings";
 let client: Client<any>;

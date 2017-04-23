@@ -1,8 +1,5 @@
-import { buildClientSchema, DocumentNode, GraphQLSchema } from "graphql";
-import { Fields, fromQuery, GraphQLFieldsInfo } from "graphql-fields-info";
-import { Connection } from "graphql-relay";
+import { buildClientSchema, GraphQLSchema } from "graphql";
 import { Generator, IQuery, IResolver, Membra } from "membra";
-import onemitter, { Onemitter } from "onemitter";
 import { LiveMessage } from "sails-graphql-interfaces";
 import SailsIOJS = require("sails.io.js");
 import SocketIOClient = require("socket.io-client");
@@ -16,18 +13,6 @@ export interface IOptions {
     schema?: GraphQLSchema;
     schemaJSON?: any;
 }
-interface IUpdateMessage {
-    data: any;
-    type: "update" | "create" | "remove";
-    id: string;
-    globalId: string;
-}
-type GlobalID = string;
-interface IRow {
-    id: GlobalID;
-    [index: string]: any;
-}
-
 class Client<S> implements IResolver {
     protected socket: SailsIOJS.Socket;
     protected membra: Membra;
@@ -83,8 +68,12 @@ class Client<S> implements IResolver {
             });
         });
     }
-    public execute<T>(executor: (f: S) => T): Promise<T> {
-        return this.membra.execute(this.generator.generate(executor));
+    public async execute<T>(executor: (f: S) => T): Promise<T> {
+        if (!this.generator) {
+            const schema = await this.membra.getClientSchema();
+            this.generator = new Generator<S>(schema);
+        }
+        return this.membra.execute<any>(this.generator.generate(executor));
     }
     public fetch(q: string, vars?: any, subscriptionId?: string, isUnsubscribe = false): Promise<any> {
         return new Promise((resolve, reject) => {

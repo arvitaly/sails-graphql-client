@@ -71,7 +71,13 @@ class Client {
         });
     }
     execute(executor) {
-        return this.membra.execute(this.generator.generate(executor));
+        return __awaiter(this, void 0, void 0, function* () {
+            if (!this.generator) {
+                const schema = yield this.membra.getClientSchema();
+                this.generator = new membra_1.Generator(schema);
+            }
+            return this.membra.execute(this.generator.generate(executor));
+        });
     }
     fetch(q, vars, subscriptionId, isUnsubscribe = false) {
         return new Promise((resolve, reject) => {

@@ -126,6 +126,12 @@
   dependencies:
     "@types/graphql" "*"
 
+"@types/graphql-relay@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@types/graphql-relay/-/graphql-relay-0.4.2.tgz#d26bb1e793bb265e4dbcd705f58d42ee84d02d3f"
+  dependencies:
+    "@types/graphql" "*"
+
 "@types/graphql@*", "@types/graphql@^0.9.0":
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-0.9.0.tgz#fccf859f0d2817687f210737dc3be48a18b1d754"
@@ -1713,18 +1719,24 @@ graphql-relay@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/graphql-relay/-/graphql-relay-0.5.1.tgz#3b3e44430a24c0f636e713f43f65bd542fe02ac9"
 
-graphql-schema-map@0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/graphql-schema-map/-/graphql-schema-map-0.0.5.tgz#5a95802d91b4dfa415c7493465de42bb1bc3dac9"
+graphql-schema-map@0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/graphql-schema-map/-/graphql-schema-map-0.0.9.tgz#f15044822e12be025d7bd2b0393c12d3d62d4b23"
   dependencies:
     "@types/graphql" "^0.9.0"
-    "@types/graphql-relay" "^0.4.1"
-    graphql "^0.9.2"
+    "@types/graphql-relay" "^0.4.2"
+    graphql "^0.9.3"
     graphql-relay "^0.5.1"
 
 graphql@^0.9.2:
   version "0.9.2"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.9.2.tgz#2cb5c635de13f790a77c5879649cb401b1589386"
+  dependencies:
+    iterall "1.0.3"
+
+graphql@^0.9.3:
+  version "0.9.3"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.9.3.tgz#71fc0fa331bffb9c20678485861cfb370803118e"
   dependencies:
     iterall "1.0.3"
 
@@ -2778,13 +2790,14 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
 
-membra@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/membra/-/membra-0.2.2.tgz#b0c9f03683a5a7772ccd48d37c07e36e96e11f58"
+membra@^0.2.9:
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/membra/-/membra-0.2.9.tgz#0bfacf469a94cae24a70f17cb8682f3ad9aebc36"
   dependencies:
     "@types/graphql" "^0.9.0"
+    graphql "^0.9.3"
     graphql-fields-info "0.0.14"
-    graphql-schema-map "0.0.5"
+    graphql-schema-map "0.0.9"
     onemitter "0.0.7"
 
 meow@^3.1.0, meow@^3.3.0:
