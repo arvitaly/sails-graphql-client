@@ -94,12 +94,7 @@ class Client<S> implements IResolver {
                     reject("Invalid request, status code " + jwr.statusCode + ", response" + JSON.stringify(jwr));
                     return;
                 }
-                const data: { data: any, errors: any } = JSON.parse(body);
-                if (data.errors) {
-                    reject("Errors: " + JSON.stringify(data.errors));
-                    return;
-                }
-                resolve(data.data);
+                resolve(JSON.parse(body));
             });
         });
     }
