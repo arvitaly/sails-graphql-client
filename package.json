@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tsc && tslint --project=tsconfig.json && jest --verbose --coverage",
+    "test": "tsc && tslint  -e \"**/node_modules/**\" --project=tsconfig.json && jest --verbose --coverage",
     "watch:test": "jest --watch",
     "tslint": "tslint --project=tsconfig.json"
   },
@@ -41,7 +41,7 @@
     "@types/sails.io.js": "^1.0.0",
     "@types/socket.io-client": "^1.4.29",
     "graphql-fields-info": "0.0.14",
-    "membra": "^0.2.10",
+    "membra": "^0.2.11",
     "onemitter": "0.0.7",
     "sails-graphql-interfaces": "0.0.4",
     "sails.io.js": "^1.1.4",
